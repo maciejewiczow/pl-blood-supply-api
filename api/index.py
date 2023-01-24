@@ -1,11 +1,18 @@
-from flask import Flask
+from flask_openapi3 import Info
+from flask_openapi3 import OpenAPI
+from api.endpoints import defineEndpoints
+from api.utils.BaseModelEncoder import BaseModelEncoder
 
-app = Flask(__name__)
+info = Info(
+    title="Polish blood supply info API",
+    description="API exposing the information about RCKiK facilites accross Poland",
+    version="1.0.0"
+)
+app = OpenAPI(__name__, info=info)
 
-@app.route('/')
-def home():
-    return 'Hello, World!'
+app.json_encoder = BaseModelEncoder
 
-@app.route('/about')
-def about():
-    return 'About'
+defineEndpoints(app)
+
+if __name__ == "__main__":
+    app.run()
