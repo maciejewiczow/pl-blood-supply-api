@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup, NavigableString
 from api.models.DonationCenter import DonationCenter
 from api.models.SupplyLevel import SupplyLevel
 from api.models.BloodGroup import BloodGroup
+
 from api.models.FullBloodSupplyDataPoint import FullBloodSupplyDataPoint
 from api.models.responses.BloodGroupSupply import BloodGroupSupply
 from api.models.responses.DonationCenterSupply import DonationCenterSupply
@@ -30,7 +31,6 @@ def getBloodSupplyList(url: str, donationCenters: List[DonationCenter]):
             href = header['href']
 
             center = next(c for c in donationCenters if c.websiteUrl in href or c.websiteUrl.replace('www.', '') in href)
-
             yield FullBloodSupplyDataPoint(
                 donationCenter=center,
                 bloodGroup=BloodGroup(groupString=bloodGroupStr),

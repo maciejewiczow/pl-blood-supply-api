@@ -20,4 +20,3 @@ class BloodGroup(BaseModel):
             return self.groupString == other.groupString
 
         return super().__eq__(other)
-

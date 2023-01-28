@@ -32,6 +32,7 @@ def defineBloodSuplyEndpoints(app: OpenAPI):
         """ Get blood supply info for all facilities and blood groups
         Get all blood supply levels in every RCKiK in Poland, for every blood type
         """
+
         centers = getDonationCenters(donationCentersDataSourceUrl)
         return jsonify(list(getBloodSupplyList(bloodSupplyDataSourceUrl, centers))), 200
 
