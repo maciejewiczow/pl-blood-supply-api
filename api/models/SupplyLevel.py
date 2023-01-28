@@ -1,4 +1,5 @@
-from enum import Enum, auto
+from enum import Enum
+from pydantic import BaseModel
 
 class SupplyLevel(str, Enum):
     low = 'low'
@@ -23,3 +24,6 @@ supplyLevelImageSrcs = {
     'krew11': SupplyLevel.full,
     'krew0': SupplyLevel.stop,
 }
+
+class SupplyLevelModel(BaseModel):
+    __root__: SupplyLevel

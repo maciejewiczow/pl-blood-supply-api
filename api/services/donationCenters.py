@@ -24,7 +24,6 @@ def getDonationCenters(listFileApiEndpoint: str):
 
     dataReader = csv.DictReader(csvText.splitlines(), delimiter=';')
 
-
     results: List[DonationCenter] = []
     for row in dataReader:
         name = row['RCKiK']
@@ -47,3 +46,9 @@ def getDonationCenters(listFileApiEndpoint: str):
         )
 
     return results
+
+def getDonationCenterByName(name: str, datasourceUrl: str):
+    try:
+        return next(dc for dc in getDonationCenters(datasourceUrl) if dc.name == name)
+    except StopIteration:
+        return None

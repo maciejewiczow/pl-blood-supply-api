@@ -5,7 +5,7 @@ from api.utils.BaseModelEncoder import BaseModelEncoder
 
 info = Info(
     title="Polish blood supply info API",
-    description="API exposing the information about RCKiK facilites accross Poland",
+    description="API exposing the information about RCKiK facilites accross Poland and their blood supply",
     version="1.0.0"
 )
 app = OpenAPI(__name__, info=info)
