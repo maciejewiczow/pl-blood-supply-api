@@ -3,7 +3,7 @@ from api.models.DonationCenter import DonationCenter
 from api.models.SupplyLevel import SupplyLevel
 from api.models.BloodGroup import BloodGroup
 
-class BloodSupplyDataPoint(BaseModel):
+class FullBloodSupplyDataPoint(BaseModel):
     donationCenter: DonationCenter
     bloodGroup: BloodGroup
     supplyLevel: SupplyLevel
