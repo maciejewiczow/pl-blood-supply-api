@@ -18,11 +18,11 @@ class SupplyLevel(str, Enum):
         return SupplyLevel.unknown
 
 supplyLevelImageSrcs = {
-    'krew3': SupplyLevel.low,
-    'krew2': SupplyLevel.moderate,
-    'krew1': SupplyLevel.optimal,
-    'krew11': SupplyLevel.full,
-    'krew0': SupplyLevel.stop,
+    'krew3.': SupplyLevel.low,
+    'krew2.': SupplyLevel.moderate,
+    'krew1.': SupplyLevel.optimal,
+    'krew11.': SupplyLevel.full,
+    'krew0.': SupplyLevel.stop,
 }
 
 class SupplyLevelModel(BaseModel):

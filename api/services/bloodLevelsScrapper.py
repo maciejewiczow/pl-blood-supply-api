@@ -21,11 +21,11 @@ def getBloodSupplyList(url: str, donationCenters: List[DonationCenter]):
     headers = bloodSupplyTableElement.select('thead tr th a')
 
     for row in bloodSupplyTableElement.select('tbody tr'):
-        cells = row.find_all('td')
-        bloodGroupStr = cells[0].text
+        cellsIt = iter(row.find_all('td'))
 
-        cellsIt = iter(zip(headers, cells))
-        next(cellsIt)
+        bloodGroupStr = next(cellsIt).text
+
+        cellsIt = zip(headers, cellsIt)
 
         for header, cell in cellsIt:
             href = header['href']
